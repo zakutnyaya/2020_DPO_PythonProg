@@ -1,0 +1,717 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[11pt]{article}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{2020\_DPO\_0\_git}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    Центр непрерывного образования
+
+\section{Программа «Python для автоматизации и анализа
+данных»}\label{ux43fux440ux43eux433ux440ux430ux43cux43cux430-python-ux434ux43bux44f-ux430ux432ux442ux43eux43cux430ux442ux438ux437ux430ux446ux438ux438-ux438-ux430ux43dux430ux43bux438ux437ux430-ux434ux430ux43dux43dux44bux445}
+
+Неделя 1 - 1
+
+\emph{Рогович Татьяна, НИУ ВШЭ}
+
+На основе
+\href{https://ancatmara.gitbooks.io/digital-literacy/chapter1.html}{статьи}.
+
+    \subsection{Что такое
+Git?}\label{ux447ux442ux43e-ux442ux430ux43aux43eux435-git}
+
+Git - \textbf{система управления версиями} (\emph{version control
+system, VCS}), созданная программистом Линусом Торвальдсом для
+управления разработкой ядра Linux в 2005 году. Хорошо, а что это
+всё-таки значит?
+
+Представьте, что вы с коллегами вместе пишете научную статью. У вас на
+компьютере есть папка, где лежат текстовые документы, картинки, графики
+и прочие нужные файлы; то же самое есть и у ваших коллег. Когда кто-то
+из вас изменяет, добавляет или удаляет файлы, остальные этих изменений
+не видят. Вы пишете друг другу об изменениях, пересылаете обновленные
+версии файлов, но в процессе работы непременно возникает путаница: какая
+версия текста - последняя? Куда и когда исчезла пара абзацев? Кто внес
+те или иные правки? Избежать таких проблем и помогают системы контроля
+версий. Устроено это так:
+
+\begin{itemize}
+\tightlist
+\item
+  Ваша папка на компьютере - это не просто папка, а локальный
+  репозиторий
+\item
+  Она является копией удаленного репозитория, который лежит на
+  веб-хостинге (например, GitHub или BitBucket)
+\item
+  Eсли вы работаете над проектом с коллегами, то своя локальная копия
+  есть у каждого
+\item
+  Kогда вы внесли некоторое количество изменений, вы можете их
+  сохранить, и это дествие запишется в журнал; это называется commit
+\item
+  После этого можно отправить изменения в удаленный репозиторий; это
+  называется push
+\item
+  Актуальная версия проекта, учитывающая последние изменения всех
+  участников, будет храниться в удаленном репозитории
+\item
+  Если вы увидели, что ваши коллеги запушили в удаленный репозиторий
+  что-то новенькое, то можно (и нужно!) скопировать это себе на
+  компьютер; это называется pull
+\end{itemize}
+
+Чем-то похоже на Dropbox, GoogleDrive и прочие облачные хранилища,
+правда? Только в данном случае ваши файлы синхронизируются не
+автоматически, а по команде, и возможностей управления ими гораздо
+больше.
+
+Понятно, что для совместной работы над текстом научной статьи вполне
+хватит и GoogleDocs, но вот если, например, вы хотите опубликовать
+результаты исследования в интернете и сделать для этого собственный
+сайт, то без VCS обойтись сложно. И ещё раз, системы контроля версий
+хороши тем, что
+
+\begin{itemize}
+\tightlist
+\item
+  Позволяют работать над проектом в команде;
+\item
+  Вы видите, кем и когда были внесены те или иные изменения;
+\item
+  Их всегда можно откатить назад;
+\item
+  Вы не потеряете проделанную работу, даже если что-то удалите на своем
+  компьютере;
+\item
+  Ваши наработки полностью открыты для других (а это доступность знаний
+  и ускорение развития технологий, ура!);
+\item
+  GitHub позволяет не только хранить и просматривать файлы проекта, но и
+  публиковать веб-сайты, документацию и т.п.
+\end{itemize}
+
+Существует много систем управления версиями, но мы будем пользоваться
+самой распространенной - \textbf{git}. Также нам нужно как-то отдавать
+гиту команды, и делать это можно двумя способами: с помощью командной
+строки и через графический интерфейс (graphical user interface, GUI).
+Графический интерфейс программы - это все те окошки с кнопочками,
+которые мы привыкли видеть. Существует много графических интерфейсов для
+гита, например:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://git-scm.com/docs/git-gui}{Git GUI}
+\item
+  \href{https://desktop.github.com/}{GitHub Desktop}
+\item
+  \href{https://gitextensions.github.io/}{Git Extensions}
+\item
+  \href{https://www.sourcetreeapp.com/}{SourceTree}
+\item
+  \href{https://tortoisegit.org/}{TortoiseGit}
+\end{itemize}
+
+Мы будем пользоваться программой GitHub Desktop, которую можно скачать
+\href{https://desktop.github.com/}{отсюда}. Если вы уже знакомы с гитом,
+то можете выбрать любую программу или пользоваться командной строкой -
+это не принципиально. Стоит отметить, что пользоваться командной строкой
+гораздо сложнее чем графическим интерфейсом, поэтому она больше подходит
+продвинутым пользователям, поэтому в данном блокноте, командная строка
+рассматриваться не будет.
+
+Давайте еще раз закрепим: * \textbf{git} - разновидность системы
+контроля версий (самая популярная). Его можно скачать и установить,
+далее использовать через командную строку * Можно использовать
+графический интерфейс для работы с \textbf{git}. При этом скачивать и
+устанавливать сам git отдельно не нужно, он обычно идет в комплекте с
+графическим интерфейсом (но не во всех gui) * Репозиторий - это место
+где мы храним наш код\проект и всю информацию по файлам, их изменения и
+т.д. Репозиторий должен где-то хранится, чтобы у всех был доступ к нему
+и они могли видеть изменения. Его можно хранить и на домашнем
+компьютере, но не всегда удобно держать компьютер включенным целыми
+сутками, поэтому используют хостинги для репозиториев. Одним из самых
+известных является \textbf{\href{github.com}{Github}}
+
+    \subsection{Github}\label{github}
+
+\textbf{Github} - крупнейший веб-сервис для хостинга IT-проектов и их
+совместной разработки. Веб-сервис основан на системе контроля версий Git
+и разработан на Ruby on Rails и Erlang компанией GitHub, Inc. Так как мы
+будем хранить на нем наши репозитории, поэтому мы и выбрали
+\textbf{Github Desktop}, т.к. он разрабатывается специально для
+максимальной интеграции и упрощения с Github.
+
+Для работы нам нужен аккаунт. Чтобы зарегистрироваться, идём
+\href{https://github.com/join?source=header-home}{сюда}, выбираем имя
+пользователя и пароль, и готово! Теперь у вас есть собственная
+страничка: https://github.com/username, где username - имя пользователя
+которое вы указали.
+
+После регистрации вы попадете на приветственную страницу, где сначала
+нужно, ничего не меняя, нажать зеленую кнопку \textbf{Continue}, а потом
+\textbf{Skip this step} (но если не лень, можно заполнить опросник и
+нажать \textbf{Submit}).
+
+Далее подтвердите свой аккаунт на указанной ранее почте и все, вы готовы
+к работе.
+
+    \subsection{Как скачать материалы
+курса}\label{ux43aux430ux43a-ux441ux43aux430ux447ux430ux442ux44c-ux43cux430ux442ux435ux440ux438ux430ux43bux44b-ux43aux443ux440ux441ux430}
+
+На самом деле для простого скачивания материалов курса, не нужен аккаунт
+в Github. Все можно сделать через зеленую кнопку \textbf{Clone or
+download}
+
+Нам нужно нажать \textbf{Download ZIP} и тогда архив со всеми файлами
+репозитория будет скачан на ваш компьютер
+
+Отдельные файлы, например, блокноты .ipynb, можно скачать индивидуально.
+Находим необходимый файл и кликаем на него
+
+Нам откроется сам файл и его содержимое. Нажимаем на кнопку \textbf{RAW}
+
+Теперь перед нам просто \emph{текст} файла и его можно сохранить. Во
+многих браузерах на основе Chromium, есть функция \textbf{сохранить}
+(Google Chrome, Yandex Browser и т.д.). Ее мы и нажимаем.
+
+Если кнопки нет, то мы можем скопировать весь текст (CTR + A) и вставить
+его в пустой тесктовый файл и затем сохранить его с расширением
+\textbf{.ipynb}. Также, файл скачанный из браузера сохраняется с
+расширением \textbf{.txt}, поэтому его нужно стереть и оставить
+\textbf{.ipynb}.
+
+На \textbf{Windows} это можно сделать, нажав правой кнопкой и затем
+переименовать, или нажав \textbf{F2} (Файл должен быть выделен).
+Соглашаемся с диалоговым окном
+
+На \textbf{MacOS} это можно сделать, нажав правой кнопкой и затем
+переименовать, или нажав \textbf{Enter/Return} (файл должен быть
+выделен). Соглашаемся с диалоговым окном
+
+Есть еще третий способ скачивания ресурсов это \textbf{Clone} или
+клонирование, но к нему мы перейдем после создания репозитория, который
+и склонируем.
+
+    \subsection{Создание
+репозитория}\label{ux441ux43eux437ux434ux430ux43dux438ux435-ux440ux435ux43fux43eux437ux438ux442ux43eux440ux438ux44f}
+
+Есть два основных способа создать репозиторий: * На сайте * Через GitHub
+Desktop
+
+Сначала создадим через сайт. Чтобы создать репозиторий, нажимаем кнопку
+\textbf{Start a project} и выбираем название. Оно может быть любым, но
+должно отражать суть того, что лежит внутри, например, "homeworks".
+Впрочем, гитхаб предлагает более креативные варианты. Также в
+специальном поле можно добавить описание. Для публичных репозиториев
+хорощей практикой является заполнение всех полей, чтобы пользователи
+могли срази понять о чем конкретно данный репозиторий.
+
+    У нас есть выбор между \textbf{Public} и \textbf{Private}. Разница между
+ними в том, что публичные репозиторий видно в поиске, в вашем профиле,
+любой может просмотреть весь код и предложить свои исправления (pull
+request). Приватный доступен только по ссылке, создатель репозитория сам
+выбирает того кто видет репозиторий и кто может делать коммиты. На
+обычном (бесплатном) аккаунте возможность создавать приватные
+репозитории обычно ограничена. Для их создания можно попробовать
+получить \textbf{PRO} доступ через
+\href{https://education.github.com/}{Github Education} для учащихся с
+почтой от учебного заведения. Мы будем использовать публичный
+репозиторий.
+
+Далее у нас есть возможность инициализировать репозиторий с файлом
+Readme. В нем может быть отображена информация о репозитории, установке
+файлов и т.д. Описание происходит в формет \textbf{Wiki Markdown}. Также
+за этой галочкой скрывается команда \textbf{init}, которая превращает
+пустую папку в git-проект.
+
+Также стоит упомянуть про файл \textbf{.gitignore} и \textbf{license}.
+Файл \textbf{.gitignore} нужен для того чтобы в репозиторий не попадали
+разные временные файлы или сборки, например, при сборке проекта в Visual
+Studio создается множество временных файлов, которые при каждом
+изменении исходного кода программы, будут другими, поэтому для
+репозитория это по факту \emph{мусор}. Поэтому в этом файле прописано,
+что определенные папки и файлы не учитывать. При создании репозитория
+можно выбрать уже заранее созданные файлы под язык программирования или
+среду разработки. Также его можно прописать или дополнить и указать
+какие файлы включить или убрать из репозитория. Файл \textbf{license}
+указывает на то по какой лицензии распространяется код. Про каждую
+лицензию можно почитать отдельно и в основном они отличаются тем что
+можно делать с кодом: продавать, распространять, изменять и т.д. При
+создании нашего репозитория можно либо выбрать эти файлы, либо оставить
+их пустыми.
+
+Далее нажимаем на зеленую кнопку \textbf{Create repository}. Вы увидите
+список файлов в своем репозитории (пока это только автоматически
+сгенерированный файл README с описанием проекта) и содержание README,
+если он есть. Также файлы \textbf{.gitignore} и \textbf{license}, если
+создавались. Ссылка на репозиторий будет выглядеть так:
+https://github.com/username/your\_repo\_name.git
+
+    \subsection{Клонируем
+репозиторий}\label{ux43aux43bux43eux43dux438ux440ux443ux435ux43c-ux440ux435ux43fux43eux437ux438ux442ux43eux440ux438ux439}
+
+Теперь нам нужно сделать локальную копию нашего удаленного репозитория.
+Мы снова воспользуемся кнопкой \textbf{Clone or download}, но теперь
+используем полную ссылку на репозиторий; эту ссылку нужно скопировать
+(Если у вас окошко выглядит не так как на картинке, то нажмите в окне на
+ссылку справа сверху Use HTTPS).
+
+Для дальнеших шагов нам потребуется скачать и установить
+\href{https://desktop.github.com/}{GitHub Desktop}. После установки и
+первого запуска, возможно, потребуется войти в ваш аккаунт Github. Далее
+выбираем \textbf{Clone repository} или через \textbf{File}, а затем уже
+\textbf{Clone repository}.
+
+    В появившееся окошко мы можем либо вставить ссылку на репозиторий,
+которую мы скопировали раньше или, если вы вошли в свой аккаунт на
+Github, выбрать нужный репозиторий по ссылке. Также нам нужно указать
+папку в котором будет располагаться наш локальный репозиторий.
+
+\textbf{Тут мы выбираем из списка репозиторий}
+
+\textbf{Тут мы вставляем ссылку на репозиторий}
+
+Вне зависимости от выбора, все файлы с удаленного репозитория перейдут в
+указанную папку.
+
+    \subsection{Добавляем и изменяем
+файлы}\label{ux434ux43eux431ux430ux432ux43bux44fux435ux43c-ux438-ux438ux437ux43cux435ux43dux44fux435ux43c-ux444ux430ux439ux43bux44b}
+
+Теперь давайте создадим в нашей папке новый текстовый документ с
+сообщением Hello world!
+
+Если мы откроем \textbf{GitHub Desktop}, мы увидим что наш файл увидела
+система и пометила как добавление нового файла, отметив зеленым плюсом.
+Справа отображается, что именно сделали с файлом: зеленым выделены
+добавленные фрагменты.
+
+Теперь мы готовы сделать свой первый \textbf{коммит} (commit). По факту
+это фраза означает внесения изменения в текущую ветку. Чтобы это
+сделать, нужно написать краткое сообщение, отражающее суть изменений,
+чтобы потом было проще в них ориентироваться. В данном случае мы
+добавили новый текстовый файл (сообщение может быть на любом языке,
+необязательно на английском). Github сам нам подсказал название коммита.
+Так же мы можем добавить описание изменений, чтобы другим пользователям
+было проще.
+
+Когда мы готовы сделать коммит, нажимаем кнопку \textbf{Commit to
+master}. Это означает сделать коммит в ветку \textbf{master}, про сами
+ветки расскажем чуть позже. Но мы сделали только коммит, теперь нужно
+чтобы изменилсь файлы в удаленном репозитории. Для этого нажимаем кнопку
+сверху \textbf{Push origin}
+
+Если все прошло успешно, и изменения запушились в удаленный репозиторий,
+то, обновив его страницу на GitHub, мы увидим новый файл hello world.txt
+
+Поверьте, адекватные описания коммитов - это очень важно!
+
+    Теперь давайте создадим файл на GitHub и скопируем его в локальный
+репозиторий. Нажимаем кнопку \textbf{Create new file} и называем его
+\textbf{newfile}.
+
+Осталось прописать коммит и сделать его, нажав \textbf{Commit new file}
+
+Откроем \textbf{Github Desktop} увидим что система сама определила, что
+произошел внешний коммит и наши файлы нужно обновить (Если невидно
+изменений нажмите F5 или перезапустите приложения). Нажимаем на
+\textbf{Pull origin} и скачиваем файлы в свой локальный репозиторий.
+
+    \subsection{Верните все
+назад!}\label{ux432ux435ux440ux43dux438ux442ux435-ux432ux441ux435-ux43dux430ux437ux430ux434}
+
+Любой коммит можно отменить, щелкнув по нему правой кнопкой мыши и
+выбрав \textbf{Revert this commit}. Так, если я проведу эту процедуру со
+своим последним коммитом и запушу изменения на GitHub, то newfile файл
+там исчезнет. Чтобы посомтреть историю коммитов, нужно нажать на
+\textbf{History}.
+
+Откатывать коммиты можно также на самом сайте либо просматривать прошлые
+версии файлов.
+
+    \subsection{Клонирование чужих
+репозиториев}\label{ux43aux43bux43eux43dux438ux440ux43eux432ux430ux43dux438ux435-ux447ux443ux436ux438ux445-ux440ux435ux43fux43eux437ux438ux442ux43eux440ux438ux435ux432}
+
+Клонировать можно не только свои репозитории, но и чужие. Для этого
+найдите нужный репозиторий в поиске на github. И выбираем \textbf{Clone
+or Download}.
+
+Далее делаем все как и при копировании своего репозитория, только в
+данном случае доступен вариант клонировать только по ссылке
+
+Что это нам дает? Это позволяет получать файлы, сразу после их
+добавления или изменения и не требует захода най сайт и ручной проверки
+на изменения. Этим же образом удобно клонировать репозиторий курса и
+получать новые блокноты после каждого занятия.
+
+    \subsection{Fork
+репозитория}\label{fork-ux440ux435ux43fux43eux437ux438ux442ux43eux440ux438ux44f}
+
+Fork репозитория это возможность скопировать \emph{чужой} репозитория на
+свой аккаунт и вносить любые изменения в него, без изменения
+оригинального репозитория. Можно сделать форк любого доступного
+репозитория. При создании форка нас спросят в какой аккаунт мы хотим его
+добавить.
+
+В чем же отличие от клонирования репозитория? При клонировании мы только
+\emph{используем} файлы оригинального репозитория и при создании коммита
+с какими-то изменениями, Github Desktop скажет нам что у нас нет допуска
+и сам предложит сделать форк (Если допуск к этому репозиторию у нас
+есть, то сделать коммит мы сможем). А если мы сделали форк, то изменения
+уйдут в нашу копию в нашем аккаунте
+
+Если вы хотите править блокноты наших занятий и вносить их измения - вы
+можете сделать собственный fork и это никак не повлияет на основной
+репозиторий курса.
+
+Fork может быть полезен при разработки открытого ПО, например, мы
+сделали форк алгоритма сжатия, в нем мы изменили функцию сжатия и теперь
+алгоримт сжимает в 10 раз лучше. Мы можем сделать \textbf{Pull request},
+т.е. запросить у создателя оригинального репозитория с алгоритмом
+сжатия, интегрировать наши изменения в его репозиторий. Однаком при это
+этом могут возникнуть конфликтные ситуации, которые требуют ручного
+разбора. В данном блоконте они не разбираются.
+
+    \subsection{Ветки}\label{ux432ux435ux442ux43aux438}
+
+В \textbf{git} есть понятие веток (branch), т.е. мы можем иметь
+несколько независимых веток при работе. Коммит делается в конкретную
+ветку, по умолчанию это ветка \textbf{master}. Создать новую ветку можно
+как на сайте, так и в приложении. Для этого нужно выбрать вкладку
+\textbf{Current branch} и нажать на \textbf{New branch}
+
+Выбираем имя и в эту ветку пойдет вся информация с ветки \textbf{master}
+в том числе и все файлы
+
+И теперь мы можем переключать ветки и вносить изменения в конкретную
+ветку, не затрагивая основную, в данном случае \textbf{master}.
+Например, мы удалим один файл, и изменим другой. Удаленный файл будет
+отмечен красным минусом, а измененный желтой точкой. При этом справа
+видно что мы работаем в ветке \textbf{Features}.
+
+Делаем коммит в новую ветку и смотрим что произошло. Как мы видим в
+ветке \textbf{master} все осталось как прежде
+
+А вот в ветке \textbf{Features} удаленного файла нет. Переключить ветки
+можно, нажав на кнопку \textbf{Branch} с названием ветки
+
+Ветки удобно использовать для добавления новых функция, что они не
+ломали \emph{рабочий} код до новой функции. После разработки ветки можно
+совместить сделав так называемый \textbf{Pull request}.
+
+    \subsection{Создание репозитория из Github
+Desktop}\label{ux441ux43eux437ux434ux430ux43dux438ux435-ux440ux435ux43fux43eux437ux438ux442ux43eux440ux438ux44f-ux438ux437-github-desktop}
+
+Как говорилось ранее, новый репозиторий можно создать и из самого
+приложения. Для этого идем в \textbf{File/New repository}
+
+Указываем все данные аналогично тому как создавали на сайте и нажимаем
+\textbf{Create repository}
+
+Незабудьте нажать на \textbf{Publish repository}, чтобы он ушел на сайт.
+
+Далее еще раз укажите имя уже на сайте и все.
+
+    \subsection{Дополнительные
+ссылки}\label{ux434ux43eux43fux43eux43bux43dux438ux442ux435ux43bux44cux43dux44bux435-ux441ux441ux44bux43bux43aux438}
+
+Дополнительно почитать про все это можно по данным ссылкам:
+
+\begin{itemize}
+\tightlist
+\item
+  Про git и принципы работы с системами контроля версий (более
+  техническая статья) \href{https://habr.com/ru/post/440816/}{Хабр}
+\item
+  Введение в работу с git
+  \href{https://tproger.ru/translations/beginner-git-cheatsheet/}{TProger}
+\item
+  Git через консоль
+  \href{https://htmlacademy.ru/blog/useful/git/git-console}{Html
+  Academy}
+\item
+  Модель git flow \href{https://habr.com/ru/post/106912/}{Хабр}
+\end{itemize}
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
