@@ -10,8 +10,7 @@
 [Гид по git. Стиль PEP8. Основы работы с Jupyter. Целые и вещественные числа, логические переменные. Строки, ввод и форматирование](https://github.com/rogovich/2020_DPO_PythonProg/tree/master/1_Introduction)
 
 2 занятие (25.02.2020)
-[Задачи по занятию 1. Кортежи и списки]
-(https://github.com/rogovich/2020_DPO_PythonProg/tree/master/2_Containers_Conditions)
+[Задачи по занятию 1. Кортежи и списки](https://github.com/rogovich/2020_DPO_PythonProg/tree/master/2_Containers_Conditions)
 
 Материалы для тренировки  
 [Ссылки и краткие описания](https://github.com/rogovich/2020_DPO_PythonProg/blob/master/dopmaterialy.md)
