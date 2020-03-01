@@ -12,6 +12,9 @@
 2 занятие (25.02.2020)  
 [Задачи по занятию 1. Кортежи и списки](https://github.com/rogovich/2020_DPO_PythonProg/tree/master/2_Containers_Conditions)
 
+3 занятие (26.02.2020)
+[Срезы. Множества и словари. Условный оператор и цикл while.](https://github.com/rogovich/2020_DPO_PythonProg/tree/master/2_Containers_Conditions)
+
 Материалы для тренировки  
 [Ссылки и краткие описания](https://github.com/rogovich/2020_DPO_PythonProg/blob/master/dopmaterialy.md)
 
