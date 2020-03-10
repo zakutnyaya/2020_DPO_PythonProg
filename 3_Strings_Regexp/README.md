@@ -3,7 +3,7 @@
 * [Семинар: регулярные выражения](https://github.com/rogovich/2020_DPO_PythonProg/blob/master/3_Strings_Regexp/2020_DPO_3_2_Regexp.ipynb)
 
 * [Refresher: задачи на while, if else, срезы](https://github.com/rogovich/2020_DPO_PythonProg/blob/master/3_Strings_Regexp/2020_DPO_3_0_Problems.ipynb)
-* [Решения](https://github.com/rogovich/2020_DPO_PythonProg/blob/master/3_Strings_Regexp/2020_DPO_3_0_Problems_Solution.ipynb)
+* [Решения задач на while, if else, срезы](https://github.com/rogovich/2020_DPO_PythonProg/blob/master/3_Strings_Regexp/2020_DPO_3_0_Problems_Solution.ipynb)
 
 * [Задачи на регулярные выражения](https://github.com/rogovich/2020_DPO_PythonProg/blob/master/3_Strings_Regexp/2020_DPO_3_0_RegExp_Problems.ipynb)
 
