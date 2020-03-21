@@ -18,6 +18,16 @@
 4 занятие (3.03.2020)  
 [Методы строк. Регулярные выражения](https://github.com/rogovich/2020_DPO_PythonProg/tree/master/3_Strings_Regexp)
 
+5 занятие (10.03.2020)  
+[Цикл for. Списковые включения](https://github.com/rogovich/2020_DPO_PythonProg/tree/master/4_For_loop)
+Лабораторная работа 1 (см. ниже)
+
+6 занятие (14.03.2020)  
+[Функции](https://github.com/rogovich/2020_DPO_PythonProg/tree/master/5_Functions)
+
+7 занятие (21.03.2020)
+[Сортировки (эффективность работы алгоритмов) и работа с файлами]()
+
 Материалы для тренировки  
 [Ссылки и краткие описания](https://github.com/rogovich/2020_DPO_PythonProg/blob/master/dopmaterialy.md)
 
