@@ -1,4 +1,4 @@
-## Занятие 6 (14.03.2020)
+## Занятия 6 и 7 (14.03.2020 и 21.03.2020)
 
 Теория:
 * [Функции. Рекурсия. Генераторы. Декораторы](https://github.com/rogovich/2020_DPO_PythonProg/blob/master/5_Functions/2020_DPO_5_1_Functions.ipynb)
