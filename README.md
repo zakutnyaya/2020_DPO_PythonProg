@@ -26,7 +26,10 @@
 [Функции](https://github.com/rogovich/2020_DPO_PythonProg/tree/master/5_Functions)
 
 7 занятие (21.03.2020)  
-[Сортировки (эффективность работы алгоритмов) и работа с файлами](https://github.com/rogovich/2020_DPO_PythonProg/tree/master/6_Sorting)
+[Сортировки (эффективность работы алгоритмов)](https://github.com/rogovich/2020_DPO_PythonProg/tree/master/6_Sorting)
+
+8 занятие (28.03.2020)
+[Работа с файлами. Try/except. Введение в html](https://github.com/rogovich/2020_DPO_PythonProg/tree/master/7_Files_Web_Scraping)
 
 Материалы для тренировки  
 [Ссылки и краткие описания](https://github.com/rogovich/2020_DPO_PythonProg/blob/master/dopmaterialy.md)
