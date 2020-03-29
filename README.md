@@ -26,7 +26,10 @@
 [Функции](https://github.com/rogovich/2020_DPO_PythonProg/tree/master/5_Functions)
 
 7 занятие (21.03.2020)  
-[Сортировки (эффективность работы алгоритмов) и работа с файлами](https://github.com/rogovich/2020_DPO_PythonProg/tree/master/6_Sorting)
+[Сортировки (эффективность работы алгоритмов)](https://github.com/rogovich/2020_DPO_PythonProg/tree/master/6_Sorting)
+
+8 занятие (28.03.2020)
+[Работа с файлами. Try/except. Введение в html](https://github.com/rogovich/2020_DPO_PythonProg/tree/master/7_Files_Web_Scraping)
 
 Материалы для тренировки  
 [Ссылки и краткие описания](https://github.com/rogovich/2020_DPO_PythonProg/blob/master/dopmaterialy.md)
@@ -39,6 +42,15 @@
 **Дедлайны для дорешиваний:**  
 * 23.59 17.03.2020 (без штрафа)   
 * 23.59 24.03.2020 (штраф 40%)  
+
+8 занятие (28.03.2020)  
+[Домашняя работа 2. Задания](https://github.com/rogovich/2020_DPO_PythonProg/tree/master/%40Problems/2_Homework)  
+[Загрузите блокнот с вашим решением по ссылке](https://www.dropbox.com/request/FrqzSyMyr6OpaW8265kJ)  
+Не забудьте назвать файл вашей фамилией.
+
+**Дедлайны:**  
+* 23.59 4.04.2020 (без штрафа)    
+* 23.59 11.04.2020 (штраф 40%)  
 
 ## Формы контроля
 В какой-то момент на репозитории появятся папки @Problems и @Homework. 
