@@ -35,9 +35,12 @@
 [Ссылки и краткие описания](https://github.com/rogovich/2020_DPO_PythonProg/blob/master/dopmaterialy.md)
 
 ## Работа в классе и домашняя работа
+### 1 Лабораторная работа
 5 занятие (10.03.2020)  
 [Загрузите блокнот с вашим решением по ссылке](https://www.dropbox.com/request/DiwwhZWXbpmSgON9mCTu)
 Или на почту rogovich@gmail.com, если что-то не работает. Не забудьте назвать файл вашей фамилией.
+[Задания](https://github.com/rogovich/2020_DPO_PythonProg/blob/master/%40Problems/1_Classwork/1_Classwork.ipynb)
+[Решение](https://github.com/rogovich/2020_DPO_PythonProg/blob/master/%40Problems/1_Classwork/1_ClassWork_Solution.ipynb)
 
 **Дедлайны для дорешиваний:**  
 * 23.59 17.03.2020 (без штрафа)   
