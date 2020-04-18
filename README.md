@@ -34,6 +34,12 @@
 9 занятие (8.04.2020)  
 [Web-scraping с BeautifulSoup. Таблицы и новости. Автоматизация работы браузера с Selenium](https://github.com/rogovich/2020_DPO_PythonProg/tree/master/8_BS_Selenium)
 
+10 занятие (15.04.2020)  
+[Web-scraping с BeautifulSoup: сохранение файлов. XML, JSON, API. Работа с файлами excel в Openpyxel](https://github.com/rogovich/2020_DPO_PythonProg/tree/master/9_API_Openpyxel)
+
+11 занятие (18.04.2020)  
+[Классы в Python. Реализация собственного класса (алгоритм kNN](https://github.com/rogovich/2020_DPO_PythonProg/tree/master/10_Classes)
+
 Материалы для тренировки  
 [Ссылки и краткие описания](https://github.com/rogovich/2020_DPO_PythonProg/blob/master/dopmaterialy.md)
 
